@@ -1,3 +1,9 @@
+# How to Contribute
+
+```
+You have to create your components in src/components file and include the newly created Component in App.js file.
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
