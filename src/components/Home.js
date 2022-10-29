@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import Profile from "./Profile";
 const Home = () => {
   const [username, setUsername] = useState("");
+  const [userData, setUserData] = useState({});
+  const [loading, setLoading] = useState(false);
   const handleNameChange = (e) => {
     setUsername(e.target.value);
   };
   const fetchFromAPI = () => {
-    console.log(username);
+    setLoading(true);
+    // console.log(username);
+    fetch(`https://api.github.com/users/${username}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((err) => {})
+      .finally(() => {
+        setLoading(false);
+      });
   };
   return (
     <div>
@@ -17,7 +29,7 @@ const Home = () => {
         onChange={(e) => handleNameChange(e)}
       />
       <button onClick={fetchFromAPI}>Fetch</button>
-      <Profile />
+      {loading ? <h1>Loading...</h1> : <p>{JSON.stringify(userData)}</p>}
     </div>
   );
 };
