@@ -3,6 +3,7 @@ import Message from "./components/message";
 import Home from "./components/Home";
 import Fact from "./components/Fact";
 import Joke from "./components/Joke";
+import LoveCalculator  from "./components/loveCalculator";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
             {/* <Message /> */}
             <Fact/>
             <Joke/>
+            <LoveCalculator/>
         </div>
     );
 }
