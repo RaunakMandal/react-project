@@ -29,7 +29,19 @@ const Home = () => {
         onChange={(e) => handleNameChange(e)}
       />
       <button onClick={fetchFromAPI}>Fetch</button>
-      {loading ? <h1>Loading...</h1> : <p>{JSON.stringify(userData)}</p>}
+      {loading ? <h1>Loading...</h1> :
+      <div className="profile-information">
+        <div className="profile-card">
+          <img src={userData.avatar_url} alt="avatar" />
+          <div className="profile-text">
+            <h3>{userData.name}</h3>
+            <h4>{userData.bio}</h4>
+          </div>
+        </div>
+        <h6>Details in JSON format:</h6>
+        <p>{JSON.stringify(userData)}</p>
+      </div>
+      }
     </div>
   );
 };
